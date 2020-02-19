@@ -45,7 +45,9 @@ int MoveElevator()
                 printf("%d\n", currentFloor);
                 
             }
+        
             currentFloor = chosenFloors[i];
+            printf("DING");
             printf("\n");
         }
         else if(currentFloor > chosenFloors[i])
@@ -56,12 +58,37 @@ int MoveElevator()
                 printf("%d\n", currentFloor);
             }
             currentFloor = chosenFloors[i];
+            printf("DING");
             printf("\n");
         }
     }
 
+    int option;
+    int doItAgain = 0;
+    while(doItAgain == 0)
+    {
+        printf("\nWould you like to go to a new floor? Type '1(Yes)' or '0(No)'\n");
+        scanf("%d", &option);
+
+        if(option == 1)
+        {
+            MoveElevator();
+        }
+        else if(option == 0)
+        {
+            printf("Bye loser");
+            doItAgain = 1;
+            exit(0);
+        }
+        else
+        {
+            printf("\nWrong input\n");
+        }
+    }
+    
+
     char newFloorResponse[256];
-    printf("\nWould you like to go to a new chosenFloors[i-1]? Type 'Yes' or 'No'\n");
+    printf("\nWould you like to go to a new floor? Type 'Yes' or 'No'\n");
     gets(newFloorResponse);
     
     char yes[256] = "Yes";
